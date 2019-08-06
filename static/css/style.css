@@ -1,0 +1,45 @@
+h4{
+    color: rgb(88, 73, 83); 
+    background-color: rgba(246, 224, 181); 
+    border: 2px solid rgba(102, 84, 96); 
+    border-radius: 15px;
+    padding: 5px;
+ 
+}
+
+body{
+    background-color: rgba(170, 111, 115);
+    margin:0;
+}
+
+nav{
+   background-color: rgba(102, 84, 96);
+   padding: 5px; 
+   border-radius: 0px; 
+}
+
+nav a{
+    color: rgba(246, 224, 181); 
+    font-family: "Marker Felt", "Blippo", fantasy;
+    font-size: 1.5em;
+    padding: 5px; 
+}
+
+h1{
+    color:rgba(246, 224, 181);
+    font-family: "Marker Felt", "Blippo", fantasy;
+    font-size: 4.15em;
+}
+
+.bubble{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border-radius:100px;
+    line-height: 200px;
+    background-color:rgba(102, 84, 96);
+    color:rgba(246, 224, 181);
+    text-align:center;
+    margin: 15px;
+    box-shadow: 0 8px 10px 0 rgba(170, 111, 115), 0 6px 20px 0 rgba(246, 224, 181);
+}

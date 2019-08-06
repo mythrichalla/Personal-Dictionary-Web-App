@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Personal Dictionary Home Page</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+
+    <body>
+
+            <style>
+                    #prompt{
+                        box-sizing: content-box;
+                        width: 50%; 
+                        height:120%;
+                        font-size:20px; 
+                        text-align: center;
+                        border-radius: 5px;
+                    }
+                </style>
+
+        <div id="navBar">
+            <nav>
+                <a href="{% url 'Home' %}">Home</a> |
+                <a href="{% url 'Sets' %}">Sets</a> |
+                <a href="{% url 'About' %}">About</a>
+            </nav>
+        </div>  
+
+        <h1 style="text-align:center"><strong></center>Home</strong></h1>
+        
+        <div id="HelloImage">
+            <center><img src="https://blog.speak.social/wp-content/uploads/2016/12/blog-life-after-speak.png" 
+                style="width:750px;height:400px;"></center>
+        </div>
+
+        <center><div id="prompt">
+            <h4>Use the toolbar to navigate to various pages.
+                <br>Visit the "Sets" page to get started!
+            </h4></center>
+        </div>
+    </body>
+</html>

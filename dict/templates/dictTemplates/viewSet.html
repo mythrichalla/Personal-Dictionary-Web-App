@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Personal Dictionary Home Page</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+
+    <body>
+        <style>
+                #setMenu{
+                    display: inline-block;
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50px;
+                    line-height: 50px;
+                    background-color: rgba(246, 224, 181);
+                    color:rgb(75, 58, 69);
+                    text-align:center;
+                    margin: 15px;
+                }
+        </style>
+
+        <div id="navBar">
+            <nav>
+                <a href="{% url 'Home' %}">Home</a> |
+                <a href="{% url 'Sets' %}">Sets</a> |
+                <a href="{% url 'About' %}">About</a>
+            </nav>
+        </div>  
+        
+        <h1 style="text-align:center">{{set_obj}}</h1>
+
+        <div id="setMenu">
+            <a href="{% url 'editSet' set_obj.id %}">Edit Set</a> <br>  
+            <a href="{% url 'createEntry' set_obj.id %}">Add Entry</a><br>
+            {% if entry_obj %} 
+                <a href="{% url 'editEntry' entry_obj.id %}">Edit This Entry</a> 
+            {% endif %}
+        </div>
+        
+        {% if set_obj %}
+            <p> {{entry_obj.term}}</p>
+            <p> {{entry_obj.definition}}</p>
+        
+        {% else %}
+            <p>No entries found! Please add an entry to the set!</p>
+        {% endif %}
+    </body>
+</html>

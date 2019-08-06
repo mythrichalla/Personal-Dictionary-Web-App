@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Personal Dictionary Home Page</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+
+    <body>
+ 
+
+        <div id="navBar">
+            <nav>
+                <a href="{% url 'Home' %}">Home</a> |
+                <a href="{% url 'Sets' %}">Sets</a> |
+                <a href="{% url 'About' %}">About</a>
+            </nav>
+        </div>  
+
+        <h1 style="text-align:center"><strong></center>Create/Edit Set</strong></h1>
+        
+        <form method="POST">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+               
+            <input type ="submit" value ="Submit Form">
+        </form>
+
+        {% if editing %}
+            <p> Would you like to delete this entry?</p>
+            <a href = "{% url 'deleteEntry' entry_obj.id %}"> Delete Entry</a>
+        {% endif %}
+    
+    </body>
+</html>

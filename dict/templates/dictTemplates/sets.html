@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Personal Dictionary Home Page</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+
+    <body>
+        <style>
+            #setList{
+                 box-sizing: content-box;
+                width: 100%; 
+                height:100%;
+                font-size:20px; 
+                text-align: center;
+                border-radius: 5px;
+            }
+    
+            #createNewButton{
+                display: inline-block;
+                width: 150px;
+                height: 50px;
+                border-radius: 50px;
+                line-height: 50px;
+                background-color: rgba(246, 224, 181);
+                color:rgb(75, 58, 69);
+                text-align:center;
+                margin: 15px;
+            }
+
+            a:hover{
+                background-color: rgb(75, 58, 69);
+            }
+
+        </style>
+
+        <div id="navBar">
+            <nav>
+                <a href="{% url 'Home' %}">Home</a> |
+                <a href="{% url 'Sets' %}">Sets</a> |
+                <a href="{% url 'About' %}">About</a>
+            </nav>
+        </div>  
+
+        <h1 style="text-align:center"><strong></center>Sets</strong></h1>
+        
+        <div id="createNewButton">
+            <a href="{% url 'createSet' %}">Create New Set</a>
+        </div>
+
+        <div id="setList">
+           {% if sets %}
+                {% for set in sets %}
+                <a class="bubble" href="{% url 'viewSet' set.id %}">{{set.title}}</a>
+                {% endfor %}
+           {% else %}
+                <h5>No sets have been created yet!</h5>
+           {% endif %}
+        </div>  
+
+    </body>
+</html>
