@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Personal Dictionary Home Page</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+
+    <body>
+ 
+
+        <div id="navBar">
+            <nav>
+                <a href="{% url 'Home' %}">Home</a> |
+                <a href="{% url 'Sets' %}">Sets</a> |
+                <a href="{% url 'About' %}">About</a>
+            </nav>
+        </div>  
+
+        <h1 style="text-align:center"><strong></center>Edit Entries Page</strong></h1>
+        
+
+        <form method="POST" action = "">
+            {% csrf_token %}
+            
+            {{ entry_formset.management_form }}
+        <center><table id="entriesFormSet" class="table"> 
+                <input type ="submit" value ="Submit Form">
+                <tr>
+                    <th><h3>Terms</h3></th>
+                    <th><h3>Definitions</h3></th>
+                </tr>
+                <tbody>
+                        {% for form in entry_formset %}
+                            <tr>
+                                <td>{{ form.term }}</td>
+                                <td>{{ form.definition }}</td>
+                                <td class="delete-entry-button"><input type = "submit" value = "Delete Term"></td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+            </table></center>
+        </form>
+    
+    </body>
+</html>

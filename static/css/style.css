@@ -4,6 +4,7 @@ h4{
     border: 2px solid rgba(102, 84, 96); 
     border-radius: 15px;
     padding: 5px;
+    text-align: center;
  
 }
 
@@ -31,6 +32,12 @@ h1{
     font-size: 4.15em;
 }
 
+h3{
+    color:rgb(77, 61, 71);
+    font-family: "Arial";
+    font-size: 2.15em;
+}
+
 .bubble{
     display: inline-block;
     width: 200px;
@@ -42,4 +49,17 @@ h1{
     text-align:center;
     margin: 15px;
     box-shadow: 0 8px 10px 0 rgba(170, 111, 115), 0 6px 20px 0 rgba(246, 224, 181);
+}
+
+.delete-entry-button{
+    color: rgb(88, 73, 83); 
+    background-color: rgba(246, 224, 181); 
+    border: 2px solid rgba(102, 84, 96); 
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+}
+
+.entriesFormSet{
+    height: 10px;
 }

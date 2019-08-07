@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Set, Entry
 from .forms import SetForm, EntryForm
+from django.forms import ModelForm
+from django.forms.models import modelformset_factory, formset_factory
 
 # Create your views here.
 def home(request):
@@ -11,7 +13,7 @@ def about(request):
     return render (request, 'dictTemplates/about.html')
 
 def sets(request):
-    obj = Set.objects.order_by('-title')
+    obj = Set.objects.order_by('title')
     context = {'sets': obj}
     return render (request, 'dictTemplates/sets.html', context)
 
@@ -49,6 +51,7 @@ def deleteSet(request, set_id):
         return HttpResponseRedirect('/sets')
 
 def viewSet(request, set_id):   # Returns the first card from the set (by default) from the database
+
         set_obj = get_object_or_404(Set, id=set_id)
         entry_list = set_obj.entry_set.all()
         entry_obj = entry_list.first()
@@ -57,6 +60,13 @@ def viewSet(request, set_id):   # Returns the first card from the set (by defaul
     
         context = {'set_obj': set_obj, 'entry_obj':entry_obj}
         return render (request, 'dictTemplates/viewSet.html', context)
+
+def viewCompleteSet(request, set_id):
+        set_obj=Set.objects.get(id=set_id)
+        entry_list = set_obj.entry_set.order_by("term")
+        
+        context = {'set_obj': set_obj, 'entries':entry_list}
+        return render (request, 'dictTemplates/viewCompleteSet.html', context)
 
 def createEntry(request, set_id):
         set_obj = get_object_or_404(Set, id=set_id)
@@ -68,6 +78,7 @@ def createEntry(request, set_id):
                         return HttpResponseRedirect('/sets')
         else:
                 form = EntryForm(initial={'set': set_obj})
+                #return HttpResponse("Not reaching POST request")
 
         context={'form':form}
         return render(request, 'dictTemplates/createAndEditEntry.html', context)
