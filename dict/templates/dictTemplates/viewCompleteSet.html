@@ -34,6 +34,7 @@
             <a href="{% url 'viewCompleteSet' set_obj.id %}">View Complete Set</a> |
             <a href="{% url 'editSet' set_obj.id %}">Edit Set</a> | 
             <a href="{% url 'createEntry' set_obj.id %}">Add Entry</a> |
+            <a href="{% url 'editEntries' set_obj.id %}">Edit Entries</a> 
             {% if entry_obj %} 
                 <a href="{% url 'editEntry' entry_obj.id %}">Edit This Entry</a> 
             {% endif %}
@@ -48,6 +49,7 @@
                 <tr>
                     <td><h4> {{entry.term}}</h4></td>
                     <td><h4> {{entry.definition}}</h4></td>
+                    
                 </tr>
             {%endfor%}
         </table></center> 

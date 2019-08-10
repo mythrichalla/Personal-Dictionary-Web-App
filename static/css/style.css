@@ -35,7 +35,13 @@ h1{
 h3{
     color:rgb(77, 61, 71);
     font-family: "Arial";
-    font-size: 2.15em;
+    font-size: 1.75em;
+}
+
+h5{
+    color:rgb(92, 36, 70);
+    font-family: "Arial";
+    font-size: 1.15em;
 }
 
 .bubble{
@@ -51,15 +57,4 @@ h3{
     box-shadow: 0 8px 10px 0 rgba(170, 111, 115), 0 6px 20px 0 rgba(246, 224, 181);
 }
 
-.delete-entry-button{
-    color: rgb(88, 73, 83); 
-    background-color: rgba(246, 224, 181); 
-    border: 2px solid rgba(102, 84, 96); 
-    border-radius: 15px;
-    padding: 5px;
-    text-align: center;
-}
 
-.entriesFormSet{
-    height: 10px;
-}

@@ -49,7 +49,7 @@
         <div id="setList">
            {% if sets %}
                 {% for set in sets %}
-                <a class="bubble" href="{% url 'viewSet' set.id %}">{{set.title}}</a>
+                <a class="bubble" href="{% url 'viewCompleteSet' set.id %}">{{set.title}}</a>
                 {% endfor %}
            {% else %}
                 <h5>No sets have been created yet!</h5>

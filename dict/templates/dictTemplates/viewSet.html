@@ -6,6 +6,9 @@
     </head>
 
     <body>
+            <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Flip/1.1.2/jquery.flip.min.js"></script> -->
+
         <style>
                 #setMenu{
                     display: inline-block;
@@ -17,6 +20,43 @@
                     color:rgb(75, 58, 69);
                     text-align:center;
                     margin: 15px;
+                }
+                #CardDesign{
+                    background-image: url('http://www.ieetree.org/wp-content/uploads/2014/08/Light-Brown-Paper-Backgrounds-Images.png');
+                    width: 50%;
+                    height:350px;
+                    text-align: center;
+                    cursor: pointer;
+                }
+
+                #switchMenu{
+                    display: block;
+                    width: 200px;
+                    height: 50px;
+                    border-radius: 50px;
+                    line-height: 50px;
+                    background-color: rgba(246, 224, 181);
+                    color:rgb(75, 58, 69);
+                    text-align:center;
+                    margin: 5px;
+                }
+
+                #flipCard{
+                    line-height: 100px;
+                    top: 50%;
+                    bottom:50%;
+                    cursor: pointer;
+                }
+
+                #termFront{
+                    text-align: center;
+                    line-height: 150px;
+                    z-index: 333;
+                }
+
+                #termBack{
+                    text-align: center;
+                    z-index: 333;
                 }
         </style>
 
@@ -38,28 +78,63 @@
                 <a href="{% url 'editEntry' entry_obj.id %}">Edit This Entry</a> 
             {% endif %}
         </div>
-        
-        <!-- <center><table style = "width: 50%">
-            <tr>
-                <th><h3>Term</h3></th>
-                <th><h3>Definition</h3></th>
-            </tr>
-            {% for entry in entries %}
-                <tr>
-                    <td><h4> {{entry.term}}</h4></td>
-                    <td><h4> {{entry.definition}}</h4></td>
-                </tr>
-            {%endfor%}
-        </table></center> -->
 
-        {% if set_obj %}
-            <p> {{entry_obj.term}}</p>
-            <p> {{entry_obj.definition}}</p>
+        {% if entry_obj %}
+        <center><div id="switchMenu"><center>
+                {% if entry_obj.hasPrev %}
+                    <a href="{% url 'editEntries' set_obj.id %}?entry={{entry_obj.getPrev.id}}">Previous Term |||</a> 
+                {% endif %}
+                {% if entry_obj.hasNext %}
+                    <a href="{% url 'editEntries' set_obj.id %}?entry={{entry_obj.getNext.id}}">Next Term</a>
+                {% endif %}
+                
         
+        </div></center>
+    
+        <center><div id="CardDesign">
+            <div id="flipcard">
+                <div class="termFront"><center>
+                    <br>
+                    <br>
+                    <h5>Term</h5>
+                    <h3> {{entry_obj.term}}</h3>
+                </center></div>
+
+                <div class="termBack"><center>
+                    <h5>Definition</h5>
+                    <h3> {{entry_obj.definition}}</h3>
+                </center></div>
+            </div>
+        
+
+        <!-- <script type='text/javascript'>
+            $(document).ready(function(){
+                $("#flipcard").flip();
+            });
+        </script> -->
+    </div></center>
+    <!-- <script type='text/javascript'>
+        var term = document.querySelector('.termFront');
+        var definition = document.querySelector('.termBack');
+        var card = document.querySelector('.flipcard');
+        card.onclick = function(){
+          flipCard();
+        }
+        
+        function flipCard(){
+          if (term.style.display === 'none'){
+            term.style.display = 'block';
+            definition.style.display = 'none';
+          } else {
+            term.style.display = 'none';
+            definition.style.display = 'block';
+          }
+        }
+    </script> -->
+
         {% else %}
             <p>No entries found! Please add an entry to the set!</p>
         {% endif %}
-       
-
+    
     </body>
 </html>

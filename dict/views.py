@@ -50,8 +50,7 @@ def deleteSet(request, set_id):
         set_obj.delete()
         return HttpResponseRedirect('/sets')
 
-def viewSet(request, set_id):   # Returns the first card from the set (by default) from the database
-
+def editTerms(request, set_id):   # Returns the first card from the set (by default) from the database
         set_obj = get_object_or_404(Set, id=set_id)
         entry_list = set_obj.entry_set.all()
         entry_obj = entry_list.first()

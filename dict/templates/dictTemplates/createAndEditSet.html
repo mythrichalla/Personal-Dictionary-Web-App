@@ -18,7 +18,7 @@
 
         <h1 style="text-align:center"><strong></center>Create/Edit Set</strong></h1>
         
-        <form method="POST">
+        <center><form method="POST">
                 {% csrf_token %}
                 <table>
                     {{ form.as_table }}
@@ -28,9 +28,9 @@
         </form>
 
         {% if editing %}
-            <p> Would you like to delete this set?</p>
+            <h3><p> Would you like to delete this set?</p></h3>
             <a href = "{% url 'deleteSet' set_obj.id %}"> Delete Set</a>
         {% endif %}
-    
+    </center>
     </body>
 </html>
